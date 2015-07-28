@@ -1,6 +1,6 @@
 #!/bin/sh
 # Initially change permissions for all in watchdir
-chmod -R "$PERMISSION" /watchdir/
+chmod -R "$PERMISSION" /watchdir/*
 #################################################################
 # Watch directories for changes (exclude hidden directories), reload apache2 if changed
 while : ; do
