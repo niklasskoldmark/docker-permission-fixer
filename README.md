@@ -5,7 +5,16 @@
 Sometimes when running container share mounted volumes thera are permission problems because the files are owned by different UIDs in different containers.
 
 This container is a quickfix to watch paths for permision changes and try to fix them by setting 777 permissions on all files
-
+## Sample `docker run`
+```
+docker run \
+    -d \
+    --name=permission-fixer \
+    -e PERMISSION=776 \
+    -e LOG_ALL_TO_CONSOLE=true \
+    -v /etc/dockercontainers/nginx:/watchdir/nginixconfig \
+    niklasskoldmark/permission-fixer
+```
 
 ## Configuration
 
@@ -45,10 +54,3 @@ By default it will log to the console of the container for easy acces via : `doc
 #### Or you can mount the logdirectory to get both logs
 
 ```-v /my/logdirectory":/logdir```
-
-```docker run \
-    -d \
-    --name=permission-fixer
-    -e LOG_ALL_TO_CONSOLE=true
-    -v /etc/dockercontainers/nginx:/watchdir/nginixconfig
-    niklasskoldmark/permission-fixer```
