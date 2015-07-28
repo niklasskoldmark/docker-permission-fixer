@@ -19,6 +19,6 @@ RUN apt-get update && \
     mkdir /watchdir \
     mkdir /logdir
 
-ENTRYPOINT ["/srv/entrypoint.sh"]
+VOLUME /watchdir /logdir
 
-VOLUME /usr/local/netdot/etc /usr/local/netdot/export/bind /usr/local/netdot/export/cacti
+ENTRYPOINT ["/srv/entrypoint.sh"]
